@@ -3,7 +3,10 @@
 This was a simple project that'll revisit later once I have the time. The rasterizer part of the renderer was loosely based on OLC's 3D Engine (although this runs much faster): https://github.com/OneLoneCoder/Javidx9/tree/master/ConsoleGameEngine/BiggerProjects/Engine3D
 It's only supporting diffuse (base color) textures so far and no transparency.
 
-Other than that, the project uses vcpkg, you gotta have to download the ASSIMP library for importing the models. If not using vcpkg, you'll have to link manually to winGDI and ASSIMP.
+Other than that, this project uses vcpkg.
+If you're using it, open vcpkg file directory with your preffered cmd and run: vcpkg install assimp
+
+Else you gotta have to download the ASSIMP library for importing the models (or download it using Visual Studio's Nuget). Link manually to winGDI libraries and ASSIMP.
 
 Here are some pics of it:
 
