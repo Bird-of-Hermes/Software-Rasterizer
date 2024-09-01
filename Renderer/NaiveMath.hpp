@@ -413,25 +413,15 @@ struct Matrix4x4f
 		return out;
 	}
 
-	inline const Matrix4x4f Transposed() const noexcept
+	constexpr Matrix4x4f Transposed() const noexcept
 	{
-		__m128 row0 = _mm_set_ps(rc[0][3], rc[0][2], rc[0][1], rc[0][0]);
-		__m128 row1 = _mm_set_ps(rc[1][3], rc[1][2], rc[1][1], rc[1][0]);
-		__m128 row2 = _mm_set_ps(rc[2][3], rc[2][2], rc[2][1], rc[2][0]);
-		__m128 row3 = _mm_set_ps(rc[3][3], rc[3][2], rc[3][1], rc[3][0]);
-
-		// transpose
-		_MM_TRANSPOSE4_PS(row0, row1, row2, row3);
-
-		// load
-		const __m256 temp1 = _mm256_insertf128_ps(_mm256_castps128_ps256(row0), row1, 1);
-		const __m256 temp2 = _mm256_insertf128_ps(_mm256_castps128_ps256(row2), row3, 1);
-
-		Matrix4x4f out;
-		memcpy(&out, &temp1, sizeof(__m256));
-		memcpy(&out.m[8], &temp2, sizeof(__m256));
-
-		return out;
+		return 
+		{
+			m[0], m[4], m[8], m[12],
+			m[1], m[5], m[9], m[13],
+			m[2], m[6], m[10], m[14],
+			m[3], m[7], m[11], m[15]
+		};
 	}
 
 	inline const Matrix4x4f Invert() const noexcept
