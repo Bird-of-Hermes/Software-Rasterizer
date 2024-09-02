@@ -5,10 +5,14 @@ This was a simple project that'll revisit later once I have the time. The raster
 
 It's only supporting diffuse (base color) textures so far and no transparency.
 
-Other than that, this project uses vcpkg.
-If you're using it, open vcpkg file directory with your preffered cmd and run: vcpkg install assimp
+Other than that, this project uses vcpkg and the following libraries: stb, assimp
+If you're using it, open vcpkg file directory with your preffered command line and run these: 
 
-Else you gotta have to download the ASSIMP library for importing the models (or download it using Visual Studio's Nuget). Link manually to winGDI libraries and ASSIMP.
+vcpkg install assimp
+
+vcpkg install stb
+
+Also, if you're not using vcpkg, you'll have to link gdi32 and download/link the above manually.
 
 Here are some pics of it:
 
